@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'osaka/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'osaka/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'osaka/css/auth.css' %}">
+</head>
+
+<body>
+<header>
+    <div class="container-menu-desktop">
+        <div class="container">
+            <div class="menu-desktop">
+                <a class="logo" href="{% url 'index' %}">
+                    <span class="logo">osaka</span>
+                </a>
+                <ul class="main-menu" id="main-menu__nav">
+                    {% block ul-list %}{% endblock %}
+                    <li {% if section == "index" %} class="selected" {% endif %}><a href="{% url 'index' %}">Главная</a></li>
+                    <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog' %}">Каталог</a></li>
+                    <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog' %}">Блог</a></li>
+                    <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
+                    <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
+                </ul>
+                <div class="icon-menu">
+                    <ul class="main-menu auth-block">
+                        {% if request.user.is_authenticated %}
+                        <li class="main-menu">
+                        <li>{{ request.user.username }}</li>
+                        <li><a href="{% url "logout" %}">Выйти</a></li>
+                        </li>
+                        {% else %}
+                        <li {% if section == "sign-in" %} class="selected" {% endif %}><a href="{% url 'login' %}">Вход</a></li>
+                        <li {% if section == "register" %} class="selected" {% endif %}><a href="{% url 'register' %}">Регистрация</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-content">
+    <section>
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="column">
+            <ul class="col1">
+                <li class="list-name">Категории</li>
+                <li><a href="#">Верхняя одежда</a></li>
+                <li><a href="#">Обувь</a></li>
+                <li><a href="#">Часы</a></li>
+            </ul>
+            <ul class="col2">
+                <li class="list-name">Помощь</li>
+                <li><a href="#">Отслеживание заказа</a></li>
+                <li><a href="#">Возврат</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+            <ul class="col3">
+                <li class="list-name">Обратная связь</li>
+                <li>
+                    <p>Возник вопрос? Позвоните нам <br> по номеру (+7) 913 601 28 01 </p>
+                </li>
+            </ul>
+            <ul class="col4">
+                <li class="list-name">Рассылка</li>
+                <li><input class="input-sub" type="text" name="email" placeholder="email@example.com"></li>
+                <li>
+                    <button class="btn-sub">Подписаться</button>
+                </li>
+            </ul>
+        </div>
+        <p class="txt-center">Авторские права ©2021 Все права защищены</p>
+    </div>
+</footer>
+</body>
+
+</html>

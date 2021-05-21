@@ -1,0 +1,21 @@
+{% extends "osaka/wrapper.html" %} {% block title %}Вход{% endblock %} {% block content %}
+
+<div class="container">
+    <div class="auth">
+        <h1>Вход</h1>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <p> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" placeholder="Имя пользователя"></p>
+            <p><input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Пароль"></p>
+            <p><button>Войти</button></p>
+        </form>
+        {% if form.errors %}
+        <p class="trash">Неправильный логин или пароль</p>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}
