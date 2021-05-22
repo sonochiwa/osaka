@@ -1,9 +1,16 @@
 {% extends 'osaka/wrapper.html' %}
+{% load static %}
 
 {% block title %}
     Блог
 {% endblock %}
 
 {% block content %}
-    <h1>Блог</h1>
+<div class="banner">
+    <img src="{% static 'osaka/images/bg-01.jpg' %}"/>
+    <p class="lead">Блог</p>
+</div>
+<div class="container">
+
+</div>
 {% endblock %}
