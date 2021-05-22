@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-r4&$_7&2ddq_^&61t^6$+!@0#=eim5yt2e5dat3b_$d)u^)ibd
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['osaka-store.xyz', 'www.osaka-store.xyz', '95.181.155.80', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,8 +51,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_osaka',
+        'USER': 'admin_osaka',
+        'PASSWORD': 'ggPassword123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -71,7 +75,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en-US'
 
 TIME_ZONE = 'UTC'
 
@@ -82,6 +86,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
