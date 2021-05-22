@@ -28,7 +28,7 @@
                     <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
                     <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
                 </ul>
-                <div class="icon-menu">
+                <div class="auth-menu">
                     <ul class="main-menu auth-block">
                         {% if request.user.is_authenticated %}
                         <li class="main-menu">
@@ -46,11 +46,11 @@
     </div>
 </header>
 
+<div class="clear-fix"></div>
+
 <div class="main-content">
     <section>
-        <div class="container">
             {% block content %} {% endblock %}
-        </div>
     </section>
 </div>
 
@@ -68,12 +68,11 @@
                 <li><a href="#">Отслеживание заказа</a></li>
                 <li><a href="#">Возврат</a></li>
                 <li><a href="#">Доставка</a></li>
-                <li><a href="#">FAQs</a></li>
             </ul>
             <ul class="col3">
                 <li class="list-name">Обратная связь</li>
                 <li>
-                    <p>Возник вопрос? Позвоните нам <br> по номеру (+7) 913 601 28 01 </p>
+                    <p>Возник вопрос? Позвоните нам <br> по номеру +7 (913) 601 28-01</p>
                 </li>
             </ul>
             <ul class="col4">
@@ -84,7 +83,7 @@
                 </li>
             </ul>
         </div>
-        <p class="txt-center">Авторские права ©2021 Все права защищены</p>
+        <p class="txt-center">© 2021 Osaka-store. Все права защищены</p>
     </div>
 </footer>
 </body>
