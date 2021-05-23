@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-r4&$_7&2ddq_^&61t^6$+!@0#=eim5yt2e5dat3b_$d)u^)ibd
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['osaka-store.xyz', 'www.osaka-store.xyz', '95.181.155.80', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
