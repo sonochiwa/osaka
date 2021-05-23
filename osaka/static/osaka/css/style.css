@@ -21,7 +21,7 @@ body {
     font-size: 14px;
     height: 100%;
     overflow-x: hidden;
-    /* height: 1500px; */
+    height: 1300px;
 }
 
 header {
@@ -29,11 +29,12 @@ header {
     position: fixed;
     width: 100%;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+    z-index: 999;
 }
 
 footer {
     flex: 0 0 auto;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     background-color: #222;
     padding: 30px 0 30px;
 }
@@ -44,6 +45,7 @@ footer {
 }
 
 section {
+    margin-top: 62px;
     margin-bottom: 10px;
     text-align: justify;
 }
@@ -170,6 +172,14 @@ section {
     }
 }
 
+@media (max-width: 900px) {
+    .item {
+        width: 200px;
+        height: 300px;
+        margin-bottom: 70px;
+    }
+}
+
 .col3 p {
     color: #888;
 }
@@ -230,4 +240,72 @@ section {
     font-size: 70px;
     font-weight: bold;
     color: white;
+}
+
+.item {
+    display: inline-block;
+}
+
+.catalog img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.item {
+    width: 315px;
+    height: 390px;
+    /* overflow: hidden; */
+    margin-bottom: 70px;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.item img:hover {
+    transform: scale(1.03);
+    transition: 1s;
+}
+
+.item a {
+    text-decoration: none;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+#sidebar {
+    padding-top: 30px;
+}
+
+#sidebar li {
+    display: inline-block;
+}
+
+#sidebar a:hover {
+    border-bottom: 1px solid #333;
+    color: #333;
+}
+
+#sidebar li+li {
+    margin-left: 24px;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #999;
+    font-size: 15px;
+    padding: 5px 5px 5px 0;
+}
+
+#product-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.money {
+    line-height: 30px;
+    color: #666;
 }

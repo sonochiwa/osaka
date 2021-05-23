@@ -23,7 +23,7 @@
                 <ul class="main-menu" id="main-menu__nav">
                     {% block ul-list %}{% endblock %}
                     <li {% if section == "index" %} class="selected" {% endif %}><a href="{% url 'index' %}">Главная</a></li>
-                    <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog' %}">Каталог</a></li>
+                    <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
                     <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog' %}">Блог</a></li>
                     <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
                     <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
@@ -46,11 +46,9 @@
     </div>
 </header>
 
-<div class="clear-fix"></div>
-
 <div class="main-content">
     <section>
-            {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
     </section>
 </div>
 
