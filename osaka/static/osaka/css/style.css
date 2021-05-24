@@ -331,3 +331,63 @@ section {
 .money {
     color: #666;
 }
+
+.detail_card img {
+    width: 80%;
+}
+
+.detail_card {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.detail_card_block {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 140px;
+}
+
+.description {
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.btn-sub2ch {
+    background-color: #333;
+    width: 30%;
+    min-width: 198px;
+    border: none;
+    border-radius: 23px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: white;
+    padding: 10px 30px 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-sub2ch:hover {
+    background-color: #9bad93;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .detail_card img {
+        width: 100%;
+    }
+    .detail_card {
+        width: 100%;
+    }
+    .detail_card_block {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+.cash {
+    font-weight: bold;
+    color: green;
+    font-size: 20px;
+}

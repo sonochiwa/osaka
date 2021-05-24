@@ -1,3 +1,22 @@
+{% extends 'osaka/wrapper.html' %}
+{% load static %}
+
+{% block title %}
+    Товары
+{% endblock %}
+
 {% block content %}
-Да
+<div class="container">
+    <div class="detail_card_block">
+        <div class="detail_card">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "osaka/images/empty.png" %}{% endif %}">
+        </div>
+        <div class="detail_card">
+            <h1><p>{{ product.name }}</p></h1>
+            <p class="cash">{{ product.price }} ₽</p>
+            <p class="description">{{ product.description }}</p>
+            <button class="btn-sub2ch">Добавить в корзину</button>
+        </div>
+    </div>
+</div>
 {% endblock %}
