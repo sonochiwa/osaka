@@ -1,0 +1,40 @@
+.auth {
+    max-width: 650px;
+    margin: auto;
+    display: block;
+    background-color: white;
+}
+
+.auth input {
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+    outline: none;
+    padding: 20px 20px 20px;
+    size: 120px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.auth input:focus {
+    border: 1px solid black;
+    transition: 0.3s ease;
+}
+
+.auth button {
+    width: 100%;
+    outline: none;
+    background-color: #717fe0;
+    padding: 20px 20px 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.auth button:hover {
+    background-color: #7a8bf7;
+}
+
+.auth {
+    line-height: 50px;
+}
