@@ -77,6 +77,10 @@ section {
     font-size: 17px;
 }
 
+.trash {
+    color: #f13838;
+}
+
 .menu-desktop {
     display: flex;
     height: 100%;
