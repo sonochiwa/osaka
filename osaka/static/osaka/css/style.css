@@ -44,6 +44,7 @@ footer {
 }
 
 section {
+    padding-top: 30px;
     margin-top: 62px;
     margin-bottom: 10px;
     text-align: justify;
@@ -171,14 +172,6 @@ section {
     }
 }
 
-@media (max-width: 900px) {
-    .item {
-        width: 200px;
-        height: 300px;
-        margin-bottom: 70px;
-    }
-}
-
 .col3 p {
     color: #888;
 }
@@ -192,7 +185,6 @@ section {
     color: white;
     padding: 10px 30px 10px;
     margin-top: 20px;
-    /* transition: 0.4s ease; */
     cursor: pointer;
 }
 
@@ -224,6 +216,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
+    top: -30px;
 }
 
 .banner img {
@@ -239,44 +232,6 @@ section {
     font-size: 70px;
     font-weight: bold;
     color: white;
-}
-
-.item {
-    display: inline-block;
-}
-
-.catalog img:hover {
-    transform: scale(1.2);
-    transition: 0.5s;
-}
-
-.item {
-    width: 315px;
-    height: 390px;
-    /* overflow: hidden; */
-    margin-bottom: 70px;
-}
-
-.item img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.item img:hover {
-    transform: scale(1.03);
-    transition: 1s;
-}
-
-.item a {
-    text-decoration: none;
-    color: #999;
-    margin-bottom: 15px;
-}
-
-#sidebar {
-    padding-top: 30px;
 }
 
 #sidebar li {
@@ -299,12 +254,77 @@ section {
     padding: 5px 5px 5px 0;
 }
 
-#product-list {
+.item {
+    flex-direction: column;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 315px;
+    /* overflow: hidden; */
 }
 
-.money {
+.item img {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    padding: 10px;
+    margin-bottom: 30px;
+    width: 25%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+@media (max-width: 1300px) {
+    .card {
+        width: 33%;
+    }
+}
+
+@media (max-width: 1030px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .item {
+        height: 290px;
+        width: 210px;
+        /* overflow: hidden; */
+    }
+    .card {
+        width: 50%;
+    }
+}
+
+.card a {
+    text-decoration: none;
+    color: #999;
     line-height: 30px;
+    vertical-align: center;
+}
+
+.card a:hover {
+    color: #717fe0;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* justify-content: space-between; */
+    justify-content: start;
+}
+
+
+/* .item img:hover {
+    transform: scale(1.03);
+    transition: 1s;
+} */
+
+.money {
     color: #666;
 }
