@@ -1,0 +1,80 @@
+{% extends 'osaka/wrapper.html' %}
+{% load static %}
+
+{% block title %}Корзина{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card_main">
+        <h1>Ваша корзина заказов</h1>
+        <div class="card-flex">
+            <table class="cart">
+                <thead>
+                    <tr>
+                        <th>Продукт</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Действие</th>
+                        <th>Всего</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                        <tr>
+                            <td>
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{% if product.image %}{{ product.image.url }}
+                                    {% else %}{% static "osaka/images/empty.png" %}{% endif %}">
+                                    <p>{{ product.name }}<p>
+                                </a>
+                            </td>
+                            <td class="num">{{ item.price }} ₽</td>
+                            <td>{{ item.quantity }}</td>
+                            <td class="delete-btn"><a href="{% url "cart:cart_remove" product.id%}">Удалить</a></td>
+                            <td class="num">{{ item.total_price }} ₽</td>
+                        </tr>
+                        {% endwith %}
+                    {% endfor %}
+                        <tr class="text-col-1">
+                            <td><a href="{% url "catalog:product_list" %}">Продолжить выбор товаров</a></td>
+                        </tr>
+                </tbody>
+            </table>
+            <div class="offer-wrap">
+                <div class="offer">
+                    <h1>Детали заказа</h1>
+                    <div class="col-fields">
+                        <div class="offer-col-1">
+                            <p>Доставка:</p>
+                        </div>
+                        <div class="offer-col-2">
+                            <form>
+                                <select name="Выберете страну">
+                                <option  hidden>Выберете страну...</option> 
+                                    <option>Россия</option>
+                                    <option>Украина</option>
+                                </select>
+                                <input type="text" placeholder="Адрес доставки">
+                                <input type="text" placeholder="Почтовый индекс">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-fields">
+                        <div class="offer-col-1">
+                            <p>Итого:</p>
+                        </div>
+                        <div class="offer-col-2">
+                            <div class="total">
+                                <p>{{ cart.get_total_price }} ₽</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-col-2">
+                    <a href="#" class="button">Оформить заказ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

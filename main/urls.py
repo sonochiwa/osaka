@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('osaka.urls')),
     path('account/', include('account.urls')),
     path('catalog/', include('catalog.urls', namespace='catalog')),
+    path('cart/', include('cart.urls', namespace='cart')),
 ]
 
 if settings.DEBUG:

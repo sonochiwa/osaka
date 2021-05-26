@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'osaka',
     'account',
     'catalog',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -95,3 +96,5 @@ LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
+CART_SESSION_ID = 'cart'

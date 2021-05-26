@@ -15,8 +15,13 @@
             <h1><p>{{ product.name }}</p></h1>
             <p class="cash">{{ product.price }} ₽</p>
             <p class="description">{{ product.description }}</p>
-            <button class="btn-sub2ch">Добавить в корзину</button>
+            
+            <form action="{% url "cart:cart_add" product.id %}" method="post">
+                {{ cart_product_form }}
+                {% csrf_token %}
+                <button class="btn-sub2ch" >Добавить в корзину</button>
+            </form>
+            {% endblock %}
         </div>
     </div>
 </div>
-{% endblock %}
