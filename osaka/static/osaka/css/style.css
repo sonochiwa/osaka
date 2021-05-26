@@ -356,8 +356,8 @@ section {
 
 .btn-sub2ch {
     background-color: #333;
-    width: 30%;
-    min-width: 198px;
+    width: 50%;
+    min-width: 250px;
     border: none;
     border-radius: 23px;
     font-size: 15px;
@@ -397,7 +397,7 @@ section {
 }
 
 .card_main table {
-    border: 1px solid rgb(223, 223, 223);
+    border-top: 1px solid rgb(223, 223, 223);
     border-bottom: none;
     width: 60%;
     display: flex;
@@ -412,7 +412,8 @@ section {
 }
 
 .card_main tr {
-    border-bottom: 1px solid rgb(223, 223, 223);
+    border: 1px solid rgb(223, 223, 223);
+    border-top: none;
     display: flex;
     color: #555;
     font-size: 13px;
