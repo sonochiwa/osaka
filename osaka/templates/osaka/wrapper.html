@@ -33,10 +33,12 @@
                     <ul class="main-menu auth-block">
                         {% if request.user.is_authenticated %}
                         <li class="main-menu">
+                        <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         <li>{{ request.user.username }}</li>
                         <li><a href="{% url "logout" %}">Выйти</a></li>
                         </li>
                         {% else %}
+                        <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         <li {% if section == "sign-in" %} class="selected" {% endif %}><a href="{% url 'login' %}">Вход</a></li>
                         <li {% if section == "register" %} class="selected" {% endif %}><a href="{% url 'register' %}">Регистрация</a></li>
                         {% endif %}
