@@ -22,21 +22,19 @@
                     <span class="logo">osaka</span>
                 </a>
                 <ul class="main-menu" id="main-menu__nav">
-                    {% block ul-list %}{% endblock %}
                     <li {% if section == "index" %} class="selected" {% endif %}><a href="{% url 'index' %}">Главная</a></li>
                     <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
-                    <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog' %}">Блог</a></li>
+                    <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
                     <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
                     <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
                 </ul>
+
                 <div class="auth-menu">
                     <ul class="main-menu auth-block">
                         {% if request.user.is_authenticated %}
-                        <li class="main-menu">
                         <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         <li>{{ request.user.username }}</li>
                         <li><a href="{% url "logout" %}">Выйти</a></li>
-                        </li>
                         {% else %}
                         <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         <li {% if section == "sign-in" %} class="selected" {% endif %}><a href="{% url 'login' %}">Вход</a></li>
@@ -47,6 +45,13 @@
             </div>
         </div>
     </div>
+    <ul class="burger">
+        <li {% if section == "index" %} class="selected" {% endif %}><a href="{% url 'index' %}">Главная</a></li>
+        <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
+        <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
+        <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
+        <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
+    </ul> 
 </header>
 
 <div class="main-content">
