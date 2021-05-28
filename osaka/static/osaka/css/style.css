@@ -263,6 +263,7 @@ section {
     display: flex;
     justify-content: center;
     padding-bottom: 50px;
+    overflow-x: hidden;
 }
 
 .banner img {
