@@ -203,9 +203,6 @@ section {
     .burger {
         display: block;
     }
-    .auth-block {
-        font-size: 18px
-    }
     .logo {
         font-size: 24px;
         margin: 0;
@@ -300,11 +297,14 @@ section {
 }
 
 #sidebar a {
-    margin-right: 24px;
     text-decoration: none;
     color: #999;
     font-size: 15px;
     padding: 5px 5px 5px 0;
+}
+
+#full_list {
+    margin-right: 24px;
 }
 
 .item {
@@ -392,7 +392,7 @@ section {
 }
 
 .description {
-    margin-top: 40px;
+    margin: 30px 0 30px;
     font-size: 16px;
 }
 
@@ -429,9 +429,14 @@ section {
 }
 
 .cash {
+    padding-top: 10px;
     font-weight: bold;
     color: green;
     font-size: 20px;
+}
+
+#id_size {
+    width: 30%;
 }
 
 thead {
@@ -478,19 +483,23 @@ tbody {
 }
 
 .card_main th {
-    padding: 15px 30px 15px;
-    width: 20%;
+    padding: 15px 0px 15px;
+    width: 16.666%;
     text-align: center;
 }
 
 .card_main td {
-    padding: 15px 30px 15px;
-    width: 20%;
+    padding: 15px 0px 15px;
+    width: 16.666%;
     text-align: center;
 }
 
 .card_main p {
     text-align: left;
+}
+
+.card_main td p {
+    text-align: center;
 }
 
 .card_main img {
@@ -540,13 +549,15 @@ tbody {
     background-color: #9bad93;
 }
 
-#id_quantity {
+
+/* #id_quantity {
     display: none;
 }
 
+
 .detail_card label {
     display: none;
-}
+} */
 
 .card-flex {
     margin-bottom: 30px;
@@ -649,10 +660,6 @@ tbody {
     .text-col-2 {
         margin-left: 0;
     }
-    .card_main img {
-        display: flex;
-        justify-content: left;
-    }
 }
 
 .offer-wrap {
@@ -746,7 +753,7 @@ tbody {
 iframe {
     width: 100%;
     position: relative;
-    bottom: -15px;
+    bottom: -40px;
 }
 
 @media (max-width: 900px) {

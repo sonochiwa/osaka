@@ -9,7 +9,7 @@
 <div class="container">
     <div id="sidebar">
         <ul>
-            <li {% if not category %} class = "selected" {% endif %}><a href="{% url "catalog:product_list" %}">Все товары</a></li>
+            <li {% if not category %} class = "selected" {% endif %}><a href="{% url "catalog:product_list" %}" id="full_list">Все товары</a></li>
             {% for c in categories %}
             <li {% if category.slug == c.slug %} class = "selected" {% endif %}><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
             {% endfor %}
@@ -17,7 +17,6 @@
     </div>
 
     <h1>{% if category %}{{ category.name }}{% else %}Товары{% endif %}</h1>
-    
     <div id="main" class="product-list">
         {% for product in products %}
         <div class="card">

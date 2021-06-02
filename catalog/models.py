@@ -17,6 +17,16 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('catalog:product_list_by_category', args=[self.slug])
 
+class Size(models.Model):
+    size = models.CharField(max_length=200, db_index=True)
+    category = models.ManyToManyField(Category, 
+                                related_name='sizes')
+                                # on_delete=models.CASCADE,
+                                # blank=True,
+                                # null=True)
+    def __str__(self):
+        return self.size
+
 class Product(models.Model):
     category = models.ForeignKey(Category,
                                 related_name='products',
@@ -25,6 +35,11 @@ class Product(models.Model):
     slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(blank=True)
     description = models.TextField(blank=True)
+
+    size = models.ManyToManyField(Size, 
+                                related_name='products',                                
+                                blank=True)
+
     price = models.DecimalField(max_digits=10, decimal_places=0)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

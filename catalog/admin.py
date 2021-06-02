@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Size
 
+admin.site.register(Size)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):

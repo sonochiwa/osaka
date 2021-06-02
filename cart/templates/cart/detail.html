@@ -13,6 +13,7 @@
                         <th>Продукт</th>
                         <th>Цена</th>
                         <th>Количество</th>
+                        <th>Размер</th>
                         <th>Действие</th>
                         <th>Всего</th>
                     </tr>
@@ -30,6 +31,7 @@
                             </td>
                             <td class="num">{{ item.price }} ₽</td>
                             <td>{{ item.quantity }}</td>
+                            <td>{{ item.size }}</td>
                             <td class="delete-btn"><a href="{% url "cart:cart_remove" product.id%}">Удалить</a></td>
                             <td class="num">{{ item.total_price }} ₽</td>
                         </tr>
@@ -53,6 +55,8 @@
                                 <option  hidden>Выберете страну...</option> 
                                     <option>Россия</option>
                                     <option>Украина</option>
+                                    <option>Казахстан</option>
+                                    <option>Беларусь</option>
                                 </select>
                                 <input type="text" placeholder="Адрес доставки">
                                 <input type="text" placeholder="Почтовый индекс">
