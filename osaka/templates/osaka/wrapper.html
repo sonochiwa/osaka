@@ -1,4 +1,5 @@
 {% load static %}
+{% load contact_tags %}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -58,6 +59,7 @@
     <section>
         {% block content %} {% endblock %}
     </section>
+        {% block review %} {% endblock %}
 </div>
 
 <footer>
@@ -82,10 +84,16 @@
                 </li>
             </ul>
             <ul class="col4">
+                
                 <li class="list-name">Рассылка</li>
+                <form action='{% url 'contact' %}' method='post'>
+                {% csrf_token %}
+                {{ contact_form }}
                 <li><input class="input-sub" type="text" name="email" placeholder="email@example.com"></li>
                 <li>
                     <button class="btn-sub">Подписаться</button>
+                </form>
+                {% comment %} {% contact_form %} {% endcomment %}
                 </li>
             </ul>
         </div>

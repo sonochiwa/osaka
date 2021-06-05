@@ -10,6 +10,14 @@ def product_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    filter_by = request.GET.get('filter_by')
+    print(filter_by)
+    if filter_by:
+        if filter_by == 'gt':
+            products = products.order_by('price')
+        else:
+            products = products.order_by('-price')
+
     return render(request, 'catalog/list.html',
                 {'category': category,
                 'categories': categories,
@@ -18,10 +26,11 @@ def product_list(request, category_slug=None):
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    # cart_product_form = CartAddProductForm(product.size.all())
+    reviews = product.reviews.order_by('-date')
     cart_product_form = CartAddProductForm()
     return render(request, 'catalog/detail.html',
-        {'product': product,
+        {'product': product, 'reviews': reviews,
         'cart_product_form': cart_product_form})
+    
 
         

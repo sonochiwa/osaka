@@ -17,6 +17,11 @@
     </div>
 
     <h1>{% if category %}{{ category.name }}{% else %}Товары{% endif %}</h1>
+    <div class="ABOBA">
+        <p>Цена по:<a href='{{ request.path }}?filter_by=lt'>убыванию</a><a href='{{ request.path }}?filter_by=gt'>возростанию</a></p>
+    </div>
+
+    
     <div id="main" class="product-list">
         {% for product in products %}
         <div class="card">
@@ -26,7 +31,14 @@
             </a>
             </div>
             <p><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></p>
-            <p class="money">{{ product.price }} ₽</p>
+            {% if product.discount %}
+            <div class="price">
+                <p class="money discount">{{ product.price }} ₽ </p>
+                <p class="money">{{ product.discount_calc }} ₽</p>
+            </div>
+            {% else %}
+                <p class="money">{{ product.price }} ₽</p>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

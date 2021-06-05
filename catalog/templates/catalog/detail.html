@@ -13,10 +13,14 @@
         </div>
         <div class="detail_card">
             <h1><p>{{ product.name }}</p></h1>
-
-
-{% comment %} 
-            <select name="size" required id="id_size">
+            <p class="cash">{{ product.price }} ₽</p>
+            <p class="description">{{ product.description }}</p>
+            
+            <form action="{% url "cart:cart_add" product.id %}" method="post">      
+                                {% csrf_token %}
+                {{ cart_product_form }}
+            
+            {% comment %} <select name="size" required id="id_size">
                 <option selected>Выберете размер</option>
                 {% for item in product.size.all %}
                 {{ item.size }}
@@ -26,16 +30,21 @@
                 {% endfor %}
             </select>  {% endcomment %}
 
-
-
-            <p class="cash">{{ product.price }} ₽</p>
-            <p class="description">{{ product.description }}</p>
-            
-            <form action="{% url "cart:cart_add" product.id %}" method="post">      
-                {{ cart_product_form }}
-                {% csrf_token %}
                 <button class="btn-sub2ch" >Добавить в корзину</button>
             </form>
+            {% endblock %}
+            {% block review %}
+            <section class="review">
+                <div class='container'>
+                    <h1>Отзывы</h1>
+                    <div class=''>
+                    {% for review in reviews %}
+                        <p class="review_author">{{ review.author }}<label>{{ review.date }}</label></p>
+                        <p class="review_text">{{ review.text }}</p>
+                    {% endfor %}
+                    </div>
+                </div>
+                </section>
             {% endblock %}
         </div>
     </div>

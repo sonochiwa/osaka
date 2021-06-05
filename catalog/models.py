@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -40,6 +41,8 @@ class Product(models.Model):
                                 related_name='products',                                
                                 blank=True)
 
+    count = models.IntegerField(null=True)
+    discount = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=0)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -53,3 +56,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def discount_calc(self):
+        return self.price - (self.price * self.discount / 100)
+
+class Review(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
