@@ -51,7 +51,7 @@
         <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
         <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
         <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
-        <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
+        <li {% if section == "contacts" %} class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
     </ul> 
 </header>
 
