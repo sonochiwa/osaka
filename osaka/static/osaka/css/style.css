@@ -463,7 +463,6 @@ section {
 
 .cash {
     padding-top: 10px;
-    font-weight: bold;
     color: green;
     font-size: 20px;
 }
@@ -995,4 +994,11 @@ input[name="r"] {
 
 #r4:checked~.s1 {
     margin-left: -75%;
+}
+
+.cash_discount {
+    font-size: 20px;
+    /* font-weight: bold; */
+    color: #f13838;
+    text-decoration: line-through;
 }

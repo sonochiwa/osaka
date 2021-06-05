@@ -13,10 +13,22 @@
         </div>
         <div class="detail_card">
             <h1><p>{{ product.name }}</p></h1>
-            <p class="cash">{{ product.price }} ₽</p>
+
+
+{% if product.discount %}
+            <div class="price">
+                <p class="cash_discount">{{ product.price }} ₽ </p>
+                <p class="cash">{{ product.discount_calc }} ₽</p>
+            </div>
+            {% else %}
+                <p class="cash">{{ product.price }} ₽</p>
+            {% endif %}
+
+
+            {% comment %} <p class="cash">{{ product.price }} ₽</p> {% endcomment %}
             <p class="description">{{ product.description }}</p>
-            
-            <form action="{% url "cart:cart_add" product.id %}" method="post">      
+            <p class="description">Количество на складе: {{ product.count }}</p>
+            <form action="{% url "cart:cart_add" product.id %}" method="post">     
                                 {% csrf_token %}
                 {{ cart_product_form }}
             
@@ -31,6 +43,8 @@
             </select>  {% endcomment %}
 
                 <button class="btn-sub2ch" >Добавить в корзину</button>
+                
+
             </form>
             {% endblock %}
             {% block review %}
