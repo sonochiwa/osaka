@@ -10,12 +10,16 @@ DEBUG = True
 ALLOWED_HOSTS = ['osaka-store.xyz', 'www.osaka-store.xyz', '95.181.155.80', 'localhost']
 
 INSTALLED_APPS = [
+    # default django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # installed apps
+    'polymorphic',
+    # my apps
     'osaka',
     'account',
     'catalog',

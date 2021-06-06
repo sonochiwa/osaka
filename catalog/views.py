@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
+from django.db.models import Q
 from cart.forms import CartAddProductForm
 from .forms import ReviewForm
 # from .forms import SizeForm
@@ -10,9 +11,8 @@ def product_list(request, category_slug=None):
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=category)
+        products = products.filter(Q(clothes__category__name=category.name) | Q(shoes__category__name=category.name))
     filter_by = request.GET.get('filter_by')
-    print(filter_by)
     if filter_by:
         if filter_by == 'gt':
             products = products.order_by('price')
@@ -28,7 +28,8 @@ def product_list(request, category_slug=None):
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     reviews = product.reviews.order_by('-date')
-    cart_product_form = CartAddProductForm()
+    sizes = product.sizes.all()
+    cart_product_form = CartAddProductForm(sizes=sizes)
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
