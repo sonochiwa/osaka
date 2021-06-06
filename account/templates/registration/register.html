@@ -3,6 +3,11 @@
 <div class="container">
     <div class="auth">
         <h1>Регистрация нового аккаунта</h1>
+
+        {% for error in user_form.errors  %}
+           {{ user_form.errors }} 
+        {% endfor %}
+        
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
             <p><input placeholder="Имя пользователя" type="text" name="username" maxlength="150" required="" id="id_username">

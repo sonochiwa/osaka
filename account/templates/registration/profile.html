@@ -1,0 +1,22 @@
+{% extends 'osaka/wrapper.html' %}
+{% load static %}
+
+{% block title %}
+    Профиль
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Данные об аккаунте <label class="username">{{ user.username }}</label></h2>
+    <div class="profile">
+        <div class="profile_photo">
+            <img src= "{{ profile.photo.url }}">
+        </div>
+        <p>Имя: <strong>{{ user.first_name }}</strong></p>
+        <p>E-mail адрес: <strong>{{ user.email }}</strong></p>
+        <p>Дата рождения: <strong>{{ profile.date_of_birth|date:'d.m.Y' }}</strong></p>
+        <p>Дата регистрации: <strong>{{ user.date_joined|date:'d.m.Y' }}</p>
+    </div>
+    <a class="btn-sub2ch change-profile" href="{% url "edit" %}">Редактировать профиль</a>
+{% endblock %}
+

@@ -34,7 +34,9 @@
                     <ul class="main-menu auth-block">
                         {% if request.user.is_authenticated %}
                         <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
-                        <li>{{ request.user.username }}</li>
+                        
+                        <li><a href="{% url "profile" %}">{{ request.user.username }}</a></li>
+                        
                         <li><a href="{% url "logout" %}">Выйти</a></li>
                         {% else %}
                         <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>

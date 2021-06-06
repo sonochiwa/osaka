@@ -998,7 +998,74 @@ input[name="r"] {
 
 .cash_discount {
     font-size: 20px;
-    /* font-weight: bold; */
     color: #f13838;
     text-decoration: line-through;
+}
+
+.profile {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.profile_photo {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.profile_photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.username {
+    color: #6c7ae0;
+}
+
+.change-profile {
+    width: 150px;
+    text-decoration: none;
+}
+
+.edit_profile {
+    display: block;
+    text-align: left;
+    line-height: 2;
+    color: #333;
+    font-size: 16px;
+    width: 470px;
+}
+
+.edit_profile input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+.edit_profile input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+.edit_profile input[type=submit] {
+    margin-top: 10px;
+    background-color: #333;
+    color: white;
+    padding: 10px 30px 10px;
+    border: none;
+    border-radius: 23px;
+}
+
+.edit_profile input[type=submit]:hover {
+    background-color: #9bad93
+}
+
+#id_photo {
+    border: none;
+    display: inline-block;
+    width: 250px;
 }

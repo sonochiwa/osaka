@@ -22,8 +22,26 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
 
+class UserEditForm(forms.ModelForm):
+  
+    class Meta:
+        model = User
+        fields = ('first_name', 'email')
+        labels = {
+            "first_name": "Имя",
+            "email": "E-mail",
+        }
+        
 
 class ProfileEditForm(forms.ModelForm):
+    
     class Meta:
         model = Profile
         fields = ('date_of_birth', 'photo')
+        labels = {
+            "date_of_birth": "День рождения",
+            "photo": "Фотография",
+        }
+        widgets = {
+            'photo': forms.FileInput()
+        }
