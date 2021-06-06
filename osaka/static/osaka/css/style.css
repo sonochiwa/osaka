@@ -1068,3 +1068,19 @@ input[name="r"] {
     display: inline-block;
     width: 250px;
 }
+
+.review textarea {
+    resize: vertical;
+    width: 100%;
+    padding: 15px;
+}
+
+
+/* 
+.review label {
+    display: none;
+} */
+
+.btn-review {
+    width: 30%;
+}
