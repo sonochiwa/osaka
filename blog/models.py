@@ -21,6 +21,7 @@ class Post(models.Model):
     status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     objects = models.Manager()
     published = PublishedManager()
+    photo = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True, null=True)
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
 

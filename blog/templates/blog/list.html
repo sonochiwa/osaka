@@ -21,6 +21,9 @@
     <p class="post_title">{{ post.title }}</p>
     <p class="review_author">{{ post.author }}<label>{{ post.publish }}</label></p>
     <p class="review_text">{{ post.body }}</p>
+    {% if post.photo %}
+            <img src= "{{ post.photo.url }}">
+    {% endif %}
     {% endfor %}
 
     </div>

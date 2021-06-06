@@ -43,5 +43,3 @@ def product_detail(request, id, slug):
         'review_form': review_form,
         'cart_product_form': cart_product_form})
     
-
-        
