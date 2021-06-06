@@ -10,7 +10,11 @@
     <h2>Данные об аккаунте <label class="username">{{ user.username }}</label></h2>
     <div class="profile">
         <div class="profile_photo">
+        {% if profile.photo %}
             <img src= "{{ profile.photo.url }}">
+        {% else %}
+            <img src= "{% static "osaka/images/empty.png" %}">
+        {% endif %}
         </div>
         <p>Имя: <strong>{{ user.first_name }}</strong></p>
         <p>E-mail адрес: <strong>{{ user.email }}</strong></p>
