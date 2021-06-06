@@ -39,7 +39,7 @@ class ProfileEditForm(forms.ModelForm):
         model = Profile
         fields = ('date_of_birth', 'photo')
         labels = {
-            "date_of_birth": "День рождения",
+            "date_of_birth": "Дата рождения",
             "photo": "Фотография",
         }
         widgets = {

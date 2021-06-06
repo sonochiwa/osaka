@@ -1012,7 +1012,6 @@ input[name="r"] {
 .profile_photo {
     display: inline-block;
     width: 250px;
-    height: 250px;
     overflow: hidden;
 }
 
