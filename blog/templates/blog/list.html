@@ -15,16 +15,18 @@
         <p class="lead">Блог</p>
     </div>
     <div class="container">
-
-    {% for post in posts %}
-    
-    <p class="post_title">{{ post.title }}</p>
-    <p class="review_author">{{ post.author }}<label>{{ post.publish }}</label></p>
-    <p class="review_text">{{ post.body }}</p>
-    {% if post.photo %}
-            <img src= "{{ post.photo.url }}">
-    {% endif %}
-    {% endfor %}
-
+        <div class="blog">
+            {% for post in posts %}
+            
+            <p class="post_title">{{ post.title }}</p>
+            <p class="review_author">{{ post.author }}<label>{{ post.publish }}</label></p>
+            <p class="review_text">{{ post.body }}</p>
+            <div class="image_block">
+                {% if post.photo %}
+                        <img src= "{{ post.photo.url }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

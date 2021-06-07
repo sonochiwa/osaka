@@ -21,6 +21,7 @@ body {
     font-size: 14px;
     height: 100%;
     overflow-x: hidden;
+    line-height: 1.5;
 }
 
 header {
@@ -961,7 +962,7 @@ input[name="r"] {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    z-index: 999;
+    z-index: 997;
 }
 
 .bar {
@@ -1075,12 +1076,16 @@ input[name="r"] {
     padding: 15px;
 }
 
-
-/* 
-.review label {
-    display: none;
-} */
-
 .btn-review {
     width: 30%;
+}
+
+.image_block {
+    display: inline-block;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.image_block img {
+    width: 100%;
 }
