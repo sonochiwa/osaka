@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product
 from django.db.models import Q
 from cart.forms import CartAddProductForm
 from .forms import ReviewForm
-# from .forms import SizeForm
+
 
 def product_list(request, category_slug=None):
     category = None
@@ -37,6 +37,7 @@ def product_detail(request, id, slug):
             new_comment.product = product
             new_comment.author = request.user
             new_comment.save()
+            return redirect(product.get_absolute_url())
     else:
         review_form = ReviewForm()
     return render(request, 'catalog/detail.html',

@@ -6,27 +6,30 @@
 {% endblock %}
 
 {% block content %}
-<div class="slider middle">
 
-    <div class="slides">
-    
-        <input type="radio" name="r" id="r1" checked>
-        <input type="radio" name="r" id="r2">
-        <input type="radio" name="r" id="r3">
-        <input type="radio" name="r" id="r4">
+<div class="true_slider">
+    <div class="slider middle">
 
-        <div class="slide s1"><img src="{% static "osaka/images/slider/slide-01.jpg" %}" alt=""></div>
-        <div class="slide"><img src="{% static "osaka/images/slider/slide-02.jpg" %}" alt=""></div>
-        <div class="slide"><img src="{% static "osaka/images/slider/slide-03.jpg" %}" alt=""></div>
-        <div class="slide"><img src="{% static "osaka/images/slider/slide-04.jpg" %}" alt=""></div>
-    
-    </div>
+        <div class="slides">
+        
+            <input type="radio" name="r" id="r1" checked>
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
 
-    <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>    
+            <div class="slide s1"><img src="{% static "osaka/images/slider/slide-01.jpg" %}" alt=""></div>
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-02.jpg" %}" alt=""></div>
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-03.jpg" %}" alt=""></div>
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-04.jpg" %}" alt=""></div>
+        
+        </div>
+
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>
+            <label for="r3" class="bar"></label>
+            <label for="r4" class="bar"></label>    
+        </div>
     </div>
 </div>
 <div class="container">
