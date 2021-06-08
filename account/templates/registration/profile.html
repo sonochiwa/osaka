@@ -17,6 +17,7 @@
         {% endif %}
         </div>
         <p>Имя: <strong>{{ user.first_name }}</strong></p>
+         <p>Номер телефона: <strong>{{ profile.number }}</strong></p>
         <p>E-mail адрес: <strong>{{ user.email }}</strong></p>
         <p>Дата рождения: <strong>{{ profile.date_of_birth|date:'d.m.Y' }}</strong></p>
         <p>Дата регистрации: <strong>{{ user.date_joined|date:'d.m.Y' }}</p>
