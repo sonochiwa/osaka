@@ -13,6 +13,10 @@ html {
     height: 100%;
 }
 
+a:hover {
+    transition: .3s;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -71,7 +75,8 @@ section {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
+    line-height: 10px;
 }
 
 .trash {
@@ -1088,4 +1093,9 @@ input[name="r"] {
 
 .image_block img {
     width: 100%;
+}
+
+.slides label {
+    color: black;
+    font-size: 20px;
 }

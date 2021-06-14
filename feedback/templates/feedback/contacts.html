@@ -18,11 +18,15 @@
     <div class="contact-main-wrapper">
         <div class="contact-wrapper">
             <label class="contact-title">Отправьте нам сообщение</label>
-            <from>
+
+            <form action='{% url 'contact' %}' method='post'>
+            {% csrf_token %}
+            {{ contact_form }}
                 <input type="input" placeholder="Ваш e-mail адрес">
                 <textarea type="text" placeholder="Как мы можем помочь?"></textarea>
                 <button class="btn-sub2ch btn-contact">Отправить</button>
             </form>
+            
         </div>
         <div class="contact-wrapper second-block">
             <p>Адрес</p>

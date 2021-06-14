@@ -11,3 +11,7 @@ class Profile(models.Model):
 
     def str(self):
         return 'Profile for user {}'.format(self.user.username)
+
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'

@@ -11,13 +11,13 @@ class Size(models.Model):
 
 class ClothesSize(Size):
     class Meta:
-        verbose_name = 'Clothes Sizes'
-        verbose_name_plural = 'Clothes Sizes'
+        verbose_name = 'Размеры одежды'
+        verbose_name_plural = 'Размеры одежды'
 
 class ShoesSize(Size):
     class Meta:
-        verbose_name = 'Shoes Sizes'
-        verbose_name_plural = 'Shoes Sizes'
+        verbose_name = 'Размеры обуви'
+        verbose_name_plural = 'размеры обуви'
 
 class Category(PolymorphicModel):
     name = models.CharField(max_length=200, db_index=True)
@@ -36,13 +36,13 @@ class Category(PolymorphicModel):
 
 class ClothesCatrgory(Category):
     class Meta:
-        verbose_name = 'Clothes Categories'
-        verbose_name_plural = 'Clothes Categories'
+        verbose_name = 'Категории одежды'
+        verbose_name_plural = 'Категории одежды'
     
 class ShoesCategory(Category):
     class Meta:
-        verbose_name = 'Shoes Categories'
-        verbose_name_plural = 'Shoes Categories'
+        verbose_name = 'Категории обуви'
+        verbose_name_plural = 'Категории обуви'
 
 class Product(PolymorphicModel):
     name = models.CharField(max_length=200, db_index=True)
@@ -73,19 +73,22 @@ class Clothes(Product):
         on_delete=models.CASCADE)
     sizes = models.ManyToManyField(ClothesSize, related_name='products')
     class Meta:
-        verbose_name = 'Clothes'
-        verbose_name_plural = 'Clothes'
+        verbose_name = 'Одежда'
+        verbose_name_plural = 'Одежда'
 
 class Shoes(Product):
     category = models.ForeignKey(ShoesCategory, related_name='products',
         on_delete=models.CASCADE)
     sizes = models.ManyToManyField(ShoesSize, related_name='products')
     class Meta:
-        verbose_name = 'Shoes'
-        verbose_name_plural = 'Shoes'
+        verbose_name = 'Обувь'
+        verbose_name_plural = 'Обувь'
 
 class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     text = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'

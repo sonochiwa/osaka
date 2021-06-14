@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'catalog',
     'cart',
     'blog',
-    'contact'
+    'contact',
+    'feedback',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 

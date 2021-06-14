@@ -27,7 +27,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-publish',)
-    
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
     def __str__(self):
         return self.title
 
@@ -43,3 +44,7 @@ class Comment(models.Model):
         ordering = ('created',)
     def __str__(self):
             return 'Comment by {} on {}'.format(self.name, self.post)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'

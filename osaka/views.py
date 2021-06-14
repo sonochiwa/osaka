@@ -9,6 +9,3 @@ def index(request):
 
 def about(request):
     return render(request, 'osaka/about.html', context={'section': 'about'})
-
-def contacts(request):
-    return render(request, 'osaka/contacts.html', context={'section': 'contacts'})

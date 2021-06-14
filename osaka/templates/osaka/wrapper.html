@@ -27,7 +27,7 @@
                     <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
                     <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
                     <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
-                    <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
+                    {% comment %} <li {% if section == "contacts" %}class="selected" {% endif %}><a href="{% url 'feedback:contacts' %}">Контакты</a></li> {% endcomment %}
                 </ul>
 
                 <div class="auth-menu">
@@ -53,7 +53,7 @@
         <li {% if section == "catalog" %} class="selected" {% endif %}><a href="{% url 'catalog:product_list' %}">Каталог</a></li>
         <li {% if section == "blog" %} class="selected" {% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
         <li {% if section == "about" %} class="selected" {% endif %}><a href="{% url 'about' %}">О нас</a></li>
-        <li {% if section == "contacts" %} class="selected" {% endif %}><a href="{% url 'contacts' %}">Контакты</a></li>
+        {% comment %} <li {% if section == "contacts" %} class="selected" {% endif %}><a href="{% url 'feedback:contacts' %}">Контакты</a></li> {% endcomment %}
     </ul> 
 </header>
 
@@ -95,7 +95,6 @@
                 <li>
                     <button class="btn-sub">Подписаться</button>
                 </form>
-                {% comment %} {% contact_form %} {% endcomment %}
                 </li>
             </ul>
         </div>
