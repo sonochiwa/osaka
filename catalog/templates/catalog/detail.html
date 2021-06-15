@@ -23,28 +23,13 @@
             {% else %}
                 <p class="cash">{{ product.price }} ₽</p>
             {% endif %}
-
-
-            {% comment %} <p class="cash">{{ product.price }} ₽</p> {% endcomment %}
             <p class="description">{{ product.description }}</p>
             <p class="description">Количество на складе: {{ product.count }}</p>
             <form action="{% url "cart:cart_add" product.id %}" method="post">     
-                                {% csrf_token %}
+            {% csrf_token %}
                 {{ cart_product_form }}
-            
-            {% comment %} <select name="size" required id="id_size">
-                <option selected>Выберете размер</option>
-                {% for item in product.size.all %}
-                {{ item.size }}
-                    {% if product.category in item.category.all %}
-                        <option value="{{ item.id }}">{{ item }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>  {% endcomment %}
-
                 <button class="btn-sub2ch" >Добавить в корзину</button>
-                
-
+            
             </form>
             {% endblock %}
             {% block review %}
@@ -56,8 +41,8 @@
                                 {% csrf_token %}
                                 {{ review_form }}
                                 <button class="btn-sub2ch btn-review">Отправить</button>
-                            </form>
-                        {% endif %}
+            </form>
+                {% endif %} 
                     <h1>Отзывы</h1>
                     {% for review in reviews %}
                         <p class="review_author">{{ review.author }}<label>{{ review.date }}</label></p>

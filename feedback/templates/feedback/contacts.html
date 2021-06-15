@@ -19,11 +19,11 @@
         <div class="contact-wrapper">
             <label class="contact-title">Отправьте нам сообщение</label>
 
-            <form action='{% url 'contact' %}' method='post'>
+            <form action='{% url 'feedback:contacts' %}' method='post'>
             {% csrf_token %}
-            {{ contact_form }}
-                <input type="input" placeholder="Ваш e-mail адрес">
-                <textarea type="text" placeholder="Как мы можем помочь?"></textarea>
+            {{ contacts_form }}
+                {% comment %} <input type="input" placeholder="Ваш e-mail адрес">
+                <textarea type="text" placeholder="Как мы можем помочь?"></textarea> {% endcomment %}
                 <button class="btn-sub2ch btn-contact">Отправить</button>
             </form>
             
