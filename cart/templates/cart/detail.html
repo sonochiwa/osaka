@@ -83,7 +83,10 @@
                     </div>
                 </div>
                 <div class="text-col-2">
-                    <a href="#" class="button">Оформить заказ</a>
+                    <form action="{% url 'cart:cart_detail' %}" method="post">
+                    {% csrf_token %}
+                        <button class="button">Оформить заказ</button>
+                    </form>
                 </div>
             </div>
         </div>

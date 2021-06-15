@@ -30,6 +30,15 @@ def cart_detail(request):
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
             initial={'quantity': item['quantity'],
-                    # 'size': item['size'],
                     'update': True})
+    if request.method == 'POST':
+        for item in cart:
+            product = item['product']
+            count = product.count - item['quantity']
+            if count <= 0:
+                product.count = 0
+            else:
+                product.count = count
+            product.save()
+
     return render(request, 'cart/detail.html', {'cart': cart})
