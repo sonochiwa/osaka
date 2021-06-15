@@ -26,7 +26,7 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart:cart_detail')
 
-def cart_detail(request):
+def cart_detail(request, **kwargs):
     status = False
     cart = Cart(request)
     for item in cart:
@@ -43,7 +43,7 @@ def cart_detail(request):
                 product.count = count
             product.save()
         cart.clear()
-        # return redirect(reverse('cart:cart_detail', kwargs={'cart': cart, 'status': True}))
-        return render(request, 'cart/detail.html', {'cart': cart, 'status': True})
+        return redirect('cart:cart_detail')
+        # return render(request, 'cart/detail.html', {'cart': cart, 'status': True})
 
     return render(request, 'cart/detail.html', {'cart': cart, 'status': False})

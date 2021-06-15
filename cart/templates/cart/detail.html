@@ -83,14 +83,12 @@
                         </div>
                     </div>
                     <div class="text-col-2">
-                        <div id="overlay" onclick="off()">
+                        <div id="overlay">
                             <div id="text">Заказ оформлен!</div>
                         </div>
-                        <form action="{% url 'cart:cart_detail' %}" method="post">
-                        {% comment %} onSubmit="return false" {% endcomment %}
+                        <form id="offer-form" action="{% url 'cart:cart_detail' %}" method="post">
                         {% csrf_token %}
                             <button class="button">Оформить заказ</button>
-                            {% comment %} onclick="on()" {% endcomment %}
                         </form>
                     </div>
                 
@@ -98,30 +96,31 @@
             </div>
         </div>
     </div>
+    
     <script>
-    function sayHi() {
-    document.getElementById("overlay").style.display = "block";
-    }
 
-    function sayHi2() {
-    document.location.href = 'http://osaka-store.xyz/cart/'
-    }
+        var form = document.querySelector('#offer-form');
+        var overlay = document.querySelector('#overlay');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            overlay.style.display = "block";
+        })
+
+        overlay.addEventListener('click', function(e){
+            e.preventDefault();
+            overlay.style.display = "none";
+            form.submit();
+        })
 
 
-    function on() {
-    setTimeout(sayHi);
-    setTimeout(sayHi2, 3000);
+        window.addEventListener('keydown', function(e){
+            if (e.keyCode == 27) { 
+                e.preventDefault();
+                overlay.style.display = "none";
+                form.submit();
+            }
+        })
 
-    }
-
-    function off() {
-    document.getElementById("overlay").style.display = "none";
-    }
-
-    </script>
-    {% if status %}
-        <script>
-            on()
-        </script>
-    {% endif %}
+    </script> 
 {% endblock %}
