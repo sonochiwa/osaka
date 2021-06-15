@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.views.decorators.http import require_POST
 from catalog.models import Category, Product
 from .cart import Cart
@@ -26,6 +27,7 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 def cart_detail(request):
+    status = False
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
@@ -40,5 +42,8 @@ def cart_detail(request):
             else:
                 product.count = count
             product.save()
+        cart.clear()
+        # return redirect(reverse('cart:cart_detail', kwargs={'cart': cart, 'status': True}))
+        return render(request, 'cart/detail.html', {'cart': cart, 'status': True})
 
-    return render(request, 'cart/detail.html', {'cart': cart})
+    return render(request, 'cart/detail.html', {'cart': cart, 'status': False})

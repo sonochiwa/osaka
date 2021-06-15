@@ -475,8 +475,8 @@ section {
 
 
 /* #_size {
-    width: 40%;
-    display: block;
+width: 40%;
+display: block;
 } */
 
 thead {
@@ -920,8 +920,8 @@ iframe {
 
 
 /* .true_slider {
-    overflow: visible;
-    width: 400%;
+overflow: visible;
+width: 400%;
 } */
 
 input[name="r"] {
@@ -1101,4 +1101,58 @@ input[name="r"] {
 .slides label {
     color: black;
     font-size: 20px;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size: 80px;
+    color: #333;
+    background-color: white;
+    padding: 20px 50px;
+    border-radius: 30px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1500px) {
+    #text {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #text {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    #text {
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+}
+
+button:disabled {
+    background-color: rgb(156, 156, 156);
+}
+
+button:hover:disabled {
+    background-color: rgb(156, 156, 156);
 }

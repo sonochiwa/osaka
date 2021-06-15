@@ -28,7 +28,7 @@
             <form action="{% url "cart:cart_add" product.id %}" method="post">     
             {% csrf_token %}
                 {{ cart_product_form }}
-                <button class="btn-sub2ch" >Добавить в корзину</button>
+                <button class="btn-sub2ch" {% if product.count == 0 %} disabled {% endif %}>Добавить в корзину</button>
             
             </form>
             {% endblock %}

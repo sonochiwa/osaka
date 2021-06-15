@@ -3,93 +3,125 @@
 
 {% block title %}Корзина{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="card_main">
-        <h1>Ваша корзина заказов</h1>
-        <div class="card-flex">
-            <table class="cart">
-                <thead>
-                    <tr>
-                        <th>Продукт</th>
-                        <th>Цена</th>
-                        <th>Количество</th>
-                        <th>Размер</th>
-                        <th>Действие</th>
-                        <th>Всего</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in cart %}
-                        {% with product=item.product %}
+    <div class="container">
+        <div class="card_main">
+            <h1>Ваша корзина заказов</h1>
+            <div class="card-flex">
+                <table class="cart">
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="{{ product.get_absolute_url }}">
-                                    <img src="{% if product.image %}{{ product.image.url }}
-                                    {% else %}{% static "osaka/images/empty.png" %}{% endif %}">
-                                    <p>{{ product.name }}<p>
-                                </a>
-                            </td>
-                            <td class="num">{{ item.price }} ₽</td>
-                            <td>{{ item.quantity }}</td>
-                            <td>{{ item.size }}</td>
-                            <td class="delete-btn"><a href="{% url "cart:cart_remove" product.id%}">Удалить</a></td>
-                            <td class="num">{{ item.total_price }} ₽</td>
+                            <th>Продукт</th>
+                            <th>Цена</th>
+                            <th>Количество</th>
+                            <th>Размер</th>
+                            <th>Действие</th>
+                            <th>Всего</th>
                         </tr>
-                        {% endwith %}
-                    {% endfor %}
-                        <tr class="text-col-1">
-                            <td><a href="{% url "catalog:product_list" %}">Продолжить выбор товаров</a></td>
-                        </tr>
-                </tbody>
-            </table>
-            <div class="offer-wrap">
-                <div class="offer">
-                    <h1>Детали заказа</h1>
-                    <div class="col-fields">
-                        <div class="offer-col-1">
-                            <p>Самовывоз:</p>
-                            <p></br>Доставка:</p>
-                            <p></br></br></br>Бронирование:</p>
+                    </thead>
+                    <tbody>
+                        {% for item in cart %}
+                            {% with product=item.product %}
+                            <tr>
+                                <td>
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <img src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static "osaka/images/empty.png" %}{% endif %}">
+                                        <p>{{ product.name }}<p>
+                                    </a>
+                                </td>
+                                <td class="num">{{ item.price }} ₽</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.size }}</td>
+                                <td class="delete-btn"><a href="{% url "cart:cart_remove" product.id%}">Удалить</a></td>
+                                <td class="num">{{ item.total_price }} ₽</td>
+                            </tr>
+                            {% endwith %}
+                        {% endfor %}
+                            <tr class="text-col-1">
+                                <td><a href="{% url "catalog:product_list" %}">Продолжить выбор товаров</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+                <div class="offer-wrap">
+                    <div class="offer">
+                        <h1>Детали заказа</h1>
+                        <div class="col-fields">
+                            <div class="offer-col-1">
+                                <p>Самовывоз:</p>
+                                <p></br>Доставка:</p>
+                                <p></br></br></br>Бронирование:</p>
+                            </div>
+                            <div class="offer-col-2">
+                                <form>
+                                    <select name="Выберете магазин">
+                                    <option  hidden>Адрес магазина...</option> 
+                                        <option>ТЦ Мега</option>
+                                        <option>Флагман</option>
+                                        <option>Фестиваль</option>
+                                    </select>
+                                    <input type="text" placeholder="Адрес доставки">
+                                    <input type="text" placeholder="Почтовый индекс">
+                                    <select name="Время бронировки заказа">
+                                    <option  hidden>Адрес магазина...</option> 
+                                        <option>ТЦ Мега</option>
+                                        <option>Флагман</option>
+                                        <option>Фестиваль</option>
+                                    </select>
+                                    <input type="text" placeholder="Время бронирования">
+                                </form>
+                            </div>
                         </div>
-                        <div class="offer-col-2">
-                            <form>
-                                <select name="Выберете магазин">
-                                <option  hidden>Адрес магазина...</option> 
-                                    <option>ТЦ Мега</option>
-                                    <option>Флагман</option>
-                                    <option>Фестиваль</option>
-                                </select>
-                                <input type="text" placeholder="Адрес доставки">
-                                <input type="text" placeholder="Почтовый индекс">
-                                <select name="Время бронировки заказа">
-                                <option  hidden>Адрес магазина...</option> 
-                                    <option>ТЦ Мега</option>
-                                    <option>Флагман</option>
-                                    <option>Фестиваль</option>
-                                </select>
-                                <input type="text" placeholder="Время бронирования">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-fields">
-                        <div class="offer-col-1">
-                            <p>Итого:</p>
-                        </div>
-                        <div class="offer-col-2">
-                            <div class="total">
-                                <p>{{ cart.get_total_price }} ₽</p>
+                        <div class="col-fields">
+                            <div class="offer-col-1">
+                                <p>Итого:</p>
+                            </div>
+                            <div class="offer-col-2">
+                                <div class="total">
+                                    <p>{{ cart.get_total_price }} ₽</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-col-2">
-                    <form action="{% url 'cart:cart_detail' %}" method="post">
-                    {% csrf_token %}
-                        <button class="button">Оформить заказ</button>
-                    </form>
+                    <div class="text-col-2">
+                        <div id="overlay" onclick="off()">
+                            <div id="text">Заказ оформлен!</div>
+                        </div>
+                        <form action="{% url 'cart:cart_detail' %}" method="post">
+                        {% comment %} onSubmit="return false" {% endcomment %}
+                        {% csrf_token %}
+                            <button class="button">Оформить заказ</button>
+                            {% comment %} onclick="on()" {% endcomment %}
+                        </form>
+                    </div>
+                
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <script>
+    function sayHi() {
+    document.getElementById("overlay").style.display = "block";
+    }
+
+    function sayHi2() {
+    document.location.href = 'http://osaka-store.xyz/cart/'
+    }
+
+
+    function on() {
+    setTimeout(sayHi);
+    setTimeout(sayHi2, 3000);
+
+    }
+
+    function off() {
+    document.getElementById("overlay").style.display = "none";
+    }
+
+    </script>
+    {% if status %}
+        <script>
+            on()
+        </script>
+    {% endif %}
 {% endblock %}
