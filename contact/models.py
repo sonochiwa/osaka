@@ -12,3 +12,16 @@ class Contact(models.Model):
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'
+
+class Mailing(models.Model):
+    title = models.CharField(max_length=250)
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-created',)
+        verbose_name = 'Рассылки'
+        verbose_name_plural = 'Рассылки'
+
+    def __str__(self):
+        return self.title
