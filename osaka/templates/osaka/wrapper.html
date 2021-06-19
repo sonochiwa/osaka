@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="{% static 'osaka/css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'osaka/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'osaka/css/auth.css' %}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
     {% block rel %}{% endblock%}
 </head>
 
@@ -88,15 +86,13 @@
                 </li>
             </ul>
             <ul class="col4">
-                
                 <li class="list-name">Рассылка</li>
-                <form action='{% url 'contact' %}' method='post'>
-                {% csrf_token %}
-                {{ contact_form }}
-                <li><input class="input-sub" type="text" name="email" placeholder="email@example.com"></li>
-                <li>
-                    <button class="btn-sub">Подписаться</button>
-                </form>
+                    <form action='{% url 'contact' %}' method='post'>
+                        {% csrf_token %}
+                        {{ contact_form }}
+                        <li><input class="input-sub" type="text" name="email" placeholder="email@example.com"></li>
+                        <li><button class="btn-sub">Подписаться</button></li>
+                    </form>
                 </li>
             </ul>
         </div>

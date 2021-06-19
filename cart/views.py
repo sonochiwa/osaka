@@ -32,17 +32,17 @@ def cart_detail(request, **kwargs):
         item['update_quantity_form'] = CartAddProductForm(
             initial={'quantity': item['quantity'],
                     'update': True})
-    if request.method == 'POST':
-        for item in cart:
-            product = item['product']
-            count = product.count - item['quantity']
-            if count <= 0:
-                product.count = 0
-            else:
-                product.count = count
-            product.save()
-        cart.clear()
-        return redirect('cart:cart_detail')
+    # if request.method == 'POST':
+    #     for item in cart:
+    #         product = item['product']
+    #         count = product.count - item['quantity']
+    #         if count <= 0:
+    #             product.count = 0
+    #         else:
+    #             product.count = count
+    #         product.save()
+    #     cart.clear()
+    #     return redirect('cart:cart_detail')
     return render(request, 'cart/detail.html', {'cart': cart})
 
 def order(request):

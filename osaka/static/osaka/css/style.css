@@ -4,11 +4,10 @@
     box-sizing: border-box;
 }
 
-
-/* @font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url("../fonts/Poppins/Poppins-Medium.ttf");
-} */
+@font-face {
+    font-family: 'Comfortaa';
+    src: url("../fonts/Comfortaa/Comfortaa-Regular.ttf");
+}
 
 html {
     height: 100%;
@@ -21,8 +20,7 @@ a:hover {
 body {
     display: flex;
     flex-direction: column;
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa';
     color: #333;
     font-size: 14px;
     height: 100%;
@@ -108,8 +106,7 @@ section {
 }
 
 .main-menu>li>a {
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa';
 }
 
 .main-menu a {
