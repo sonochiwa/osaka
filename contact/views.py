@@ -1,10 +1,10 @@
-from .models import Contact
+from .models import Contact, Mailing
 from .forms import ContactForm
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 @require_POST
 def subscription(request):
@@ -27,3 +27,13 @@ def subscription(request):
 
     return HttpResponseRedirect("/")
 
+@staff_member_required
+def mailing(request, id):
+    contacts = Contact.objects.all()
+    for contact in contacts:
+        mailing = Mailing.objects.get(id=id)
+        subject = mailing.title
+        message = mailing.text
+        send_mail(subject, message, 
+            'oskastore4you@gmail.com', [contact.email])
+    return HttpResponseRedirect("/admin/contact/mailing/")
