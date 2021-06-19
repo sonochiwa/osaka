@@ -25,7 +25,7 @@ class Mart(models.Model):
         verbose_name_plural = 'Магазины'
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     mart = models.ForeignKey(Mart, on_delete=models.CASCADE, blank=True, null=True, default=1)
     address = models.CharField(max_length=250, blank=True, null=True)
     index = models.CharField(max_length=6, blank=True, null=True)

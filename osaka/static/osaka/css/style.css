@@ -177,7 +177,7 @@ section {
 .burger a {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 40px;
 }
 
@@ -1183,4 +1183,8 @@ label[for="id_mart"] {
 
 #order-button:hover {
     background-color: #9bad93;
+}
+
+.order-list {
+    font-weight: normal;
 }
