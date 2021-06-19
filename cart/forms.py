@@ -17,7 +17,7 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['mart'] = forms.ModelChoiceField(queryset=Mart.objects.all())
+        self.fields['mart'] = forms.ModelChoiceField(queryset=Mart.objects.all(), empty_label='Выберете...', required=False)
 
     class Meta:
         model = Order
@@ -29,8 +29,8 @@ class OrderForm(forms.ModelForm):
             'promo': '',
         }
         widgets = {
-            'mart': forms.TextInput(attrs={'class': 'editContent'}),
-            'address': forms.TextInput(attrs={'class': 'editContent'}),
-            'index': forms.TextInput(attrs={'class': 'editContent'}),
-            'promo': forms.TextInput(attrs={'class': 'editContent'})
+            'mart': forms.TextInput(attrs={'class': 'editContent', 'option': 'Магазин'}),
+            'address': forms.TextInput(attrs={'class': 'editContent', 'placeholder': 'Домашний адрес'}),
+            'index': forms.TextInput(attrs={'class': 'editContent', 'placeholder': 'Почтовый индекс'}),
+            'promo': forms.TextInput(attrs={'class': 'editContent', 'placeholder': 'Введите промо-код'})
         }

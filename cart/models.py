@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from catalog.models import Product, Size
+from django.core.validators import MaxValueValidator
 
 
 class Promo(models.Model):
-    promo = models.CharField(max_length=10)    
-    
+    promo = models.CharField(max_length=50)    
+    percent = models.PositiveIntegerField(validators=[MaxValueValidator(100)])
     def __str__(self):
         return self.promo
 
@@ -25,10 +26,13 @@ class Mart(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    mart = models.ForeignKey(Mart, on_delete=models.CASCADE)
-    address = models.CharField(max_length=250)
-    index = models.CharField(max_length=6)
-    promo = models.CharField(max_length=10)   
+    mart = models.ForeignKey(Mart, on_delete=models.CASCADE, blank=True, null=True, default=1)
+    address = models.CharField(max_length=250, blank=True, null=True)
+    index = models.CharField(max_length=6, blank=True, null=True)
+    promo = models.CharField(max_length=10, blank=True, null=True)   
+
+    def __str__(self):
+        return 'Номер заказа {}'.format(self.id)
 
     class Meta:
         verbose_name = 'Заказ'

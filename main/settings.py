@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'feedback',
-    'send_email',
+    # 'send_email',
 ]
 
 MIDDLEWARE = [

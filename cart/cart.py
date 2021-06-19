@@ -58,3 +58,6 @@ class Cart(object):
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.save()
+
+    def __len__(self):
+        return len(self.cart)

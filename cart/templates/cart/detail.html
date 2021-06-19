@@ -48,35 +48,21 @@
                         <div class="col-fields">
                             <div class="offer-col-1">
                                 <p>Самовывоз:</p>
-                                <p></br>Доставка:</p>
+                                <p>Доставка:</p>
                                 {% comment %} <p></br></br></br>Бронирование:</p> {% endcomment %}
-                                <p></br></br></br>Промо-код:</p>
-                                <p></br><p>Итого:</p>
+                                </br></br></br><p>Промо-код:</p>
+                                <p>Итого:</p>
                             </div>
                             <div class="offer-col-2">
                                 <form action="{% url 'cart:cart_detail' %}" method="post">
-                                    {% comment %} <select name="Выберете магазин">
-                                    <option  hidden>Адрес магазина...</option> 
-                                        <option>ТЦ Мега</option>
-                                        <option>Флагман</option>
-                                        <option>Фестиваль</option>
-                                    </select>
-                                    <input type="text" placeholder="Адрес доставки">
-                                    <input type="text" placeholder="Почтовый индекс">                                    
-                                    <input type="checkbox" checked="checked">
-                                    <input type="text" placeholder="Время бронирования">
-                                    <input type="text" placeholder="Введите промо-код"> {% endcomment %}
-                                        
                                     {{ order_form }}
-                                    
-
                                     <div class="offer-col-2">
                                         <div class="total">
                                             <p>{{ cart.get_total_price }} ₽</p>
                                         </div>
                                     </div>
                                     {% csrf_token %}
-                                        <button class="button">Оформить заказ</button>
+                                    <button id="order-button">Оформить заказ</button>
                                 </form>
                             </div>
                         </div>
