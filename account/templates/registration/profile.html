@@ -7,42 +7,49 @@
 
 {% block content %}
 <div class="container">
-    <h2>Данные об аккаунте <label class="username">{{ user.username }}</label></h2>
-    <div class="profile">
-        <div class="profile_photo">
-        {% if profile.photo %}
-            <img src= "{{ profile.photo.url }}">
-        {% else %}
-            <img src= "{% static "osaka/images/empty.png" %}">
-        {% endif %}
-        </div>
-        <p>Имя: <strong>{{ user.first_name }}</strong></p>
-         <p>Номер телефона: <strong>{{ profile.number }}</strong></p>
-        <p>E-mail адрес: <strong>{{ user.email }}</strong></p>
-        <p>Дата рождения: <strong>{{ profile.date_of_birth|date:'d.m.Y' }}</strong></p>
-        <p>Дата регистрации: <strong>{{ user.date_joined|date:'d.m.Y' }}</p>
-        <br><h2>Список заказов:</h2>
-        {% for order in user.orders.all %}
-            {% for item in order.items.all %}
-            <div class="order-list">
-                <strong>{{ order }}</strong>
-                Название товара <strong>{{ item.product }}</strong>
-                Цена <strong>{{ item.price }} ₽</strong>
-                Количество <strong>{{ item.quantity }}</strong>
-                Размер <strong>{{ item.size }}</strong>
-                {% if order.address %}
-                    Адрес доставки <strong>{{ order.address }}</strong>
-                {% endif %}
-                {% if order.index %}
-                    Почтовый индекс <strong>{{ order.index }}</strong>
-                {% endif %}
-                {% if order.mart %}
-                    Адрес магазина <strong>{{ order.mart }}</strong>
-                {% endif %}
+    <div class="col-fields col-fields__profile">
+        <div class="offer-col-1">
+            <h2>Данные об аккаунте <label class="username">{{ user.username }}</label></h2>
+            <div class="profile">
+                <div class="profile_photo">
+                    {% if profile.photo %}
+                        <img src= "{{ profile.photo.url }}">
+                    {% else %}
+                        <img src= "{% static "osaka/images/empty.png" %}">
+                    {% endif %}
+                </div>
+                <p>Имя: <strong>{{ user.first_name }}</strong></p>
+                <p>Номер телефона: <strong>{{ profile.number }}</strong></p>
+                <p>E-mail адрес: <strong>{{ user.email }}</strong></p>
+                <p>Дата рождения: <strong>{{ profile.date_of_birth|date:'d.m.Y' }}</strong></p>
+                <p>Дата регистрации: <strong>{{ user.date_joined|date:'d.m.Y' }}</p>
+                <a class="btn-sub2ch change-profile" href="{% url "edit" %}">Редактировать профиль</a>
             </div>
+        </div>
+        <div class="offer-col-2">
+            <h2>Список заказов:</h2>
+            {% for order in user.orders.all %}
+                {% for item in order.items.all %}
+                <div class="order-list">
+                    <strong>{{ order }}</strong>
+                    Название товара <strong>{{ item.product }}</strong>
+                    Цена <strong>{{ item.price }} ₽</strong>
+                    Количество <strong>{{ item.quantity }}</strong>
+                    Размер <strong>{{ item.size }}</strong>
+                    {% if order.address %}
+                        Адрес доставки <strong>{{ order.address }}</strong>
+                    {% endif %}
+                    {% if order.index %}
+                        Почтовый индекс <strong>{{ order.index }}</strong>
+                    {% endif %}
+                    {% if order.mart %}
+                        Адрес магазина <strong>{{ order.mart }}</strong>
+                    {% endif %}
+                </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
+        </div>
     </div>
-    <a class="btn-sub2ch change-profile" href="{% url "edit" %}">Редактировать профиль</a>
+</div>
 {% endblock %}
 
