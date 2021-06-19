@@ -35,7 +35,7 @@
                         {% if request.user.is_authenticated %}
                         <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         
-                        <li><a href="{% url "profile" %}">{{ request.user.username }}</a></li>
+                        <li class="user-auth"><a href="{% url "profile" %}">{{ request.user.username }}</a></li>
                         
                         <li><a href="{% url "logout" %}">Выйти</a></li>
                         {% else %}

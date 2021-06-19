@@ -21,7 +21,7 @@
                     <tbody>
                         {% for item in cart %}
                             {% with product=item.product %}
-                            <tr>
+                            <tr class="table-item">
                                 <td>
                                     <a href="{{ product.get_absolute_url }}">
                                         <img src="{% if product.image %}{{ product.image.url }}
@@ -49,12 +49,11 @@
                             <div class="offer-col-1">
                                 <p>Самовывоз:</p>
                                 <p>Доставка:</p>
-                                {% comment %} <p></br></br></br>Бронирование:</p> {% endcomment %}
                                 </br></br></br><p>Промо-код:</p>
                                 <p>Итого:</p>
                             </div>
                             <div class="offer-col-2">
-                                <form action="{% url 'cart:cart_detail' %}" method="post">
+                                <form action="{% url 'cart:cart_detail' %}" method="post" id="offer-form">
                                     {{ order_form }}
                                     <div class="offer-col-2">
                                         <div class="total">
@@ -66,31 +65,35 @@
                                 </form>
                             </div>
                         </div>
-
                     </div>
                     <div class="text-col-2">
                         <div id="overlay">
                             <div id="text">Заказ оформлен!</div>
                         </div>
-                        {% comment %} <form id="offer-form" action="{% url 'cart:cart_detail' %}" method="post">
-                        {% csrf_token %}
-                            <button class="button">Оформить заказ</button>
-                        </form> {% endcomment %}
                     </div>
-                
                 </div>
             </div>
         </div>
     </div>
     
     <script>
-
         var form = document.querySelector('#offer-form');
         var overlay = document.querySelector('#overlay');
-
+        var address = form.querySelector('[name=address]');
+        var mart = form.querySelector('[name=mart]');
+        var product = document.querySelector('.table-item');
+        var user_auth = document.querySelector('.user-auth');
+        
         form.addEventListener('submit', function(e){
             e.preventDefault();
-            overlay.style.display = "block";
+            if (user_auth && product) {
+                if (address.value || mart.value) {
+                    overlay.style.display = "block";
+                }
+            }
+            else {
+                window.location.replace("/account/login/");
+            }
         })
 
         overlay.addEventListener('click', function(e){
@@ -98,7 +101,6 @@
             overlay.style.display = "none";
             form.submit();
         })
-
 
         window.addEventListener('keydown', function(e){
             if (e.keyCode == 27) { 
@@ -108,5 +110,6 @@
             }
         })
 
+        
     </script> 
 {% endblock %}
