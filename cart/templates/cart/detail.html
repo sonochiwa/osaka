@@ -60,12 +60,14 @@
                                             <p>{{ cart.get_total_price }} ₽</p>
                                         </div>
                                     </div>
-                                    {% csrf_token %}
-                                    <button id="order-button">Оформить заказ</button>
-                                </form>
                             </div>
                         </div>
+
                     </div>
+                        {% csrf_token %}
+                        <button id="order-button">Оформить заказ</button>
+                        </form>
+
                     <div class="text-col-2">
                         <div id="overlay">
                             <div id="text">Заказ оформлен!</div>

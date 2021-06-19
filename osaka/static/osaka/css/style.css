@@ -1032,7 +1032,7 @@ input[name="r"] {
 }
 
 .change-profile {
-    width: 150px;
+    width: 270px;
     text-decoration: none;
 }
 
@@ -1171,7 +1171,54 @@ label[for="id_mart"] {
     margin-bottom: 20px;
 }
 
+.order-list {
+    font-weight: normal;
+}
+
+.profile .col-fields {
+    width: 100%;
+    flex-direction: row;
+}
+
+.offer-col-1__profile {
+    width: 40%;
+}
+
+.offer-col-2__profile {
+    width: 60%;
+    font-size: 16px;
+    color: #333;
+}
+
+.offer-col-1__profile p {
+    font-size: 16px;
+    padding: 10px 0 5px 0;
+    margin: 0;
+}
+
+.order-list {
+    border-radius: 10px;
+    padding: 5px 10px 5px;
+    background-color: rgb(236, 236, 236);
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1000px) {
+    .profile .col-fields {
+        width: 100%;
+        flex-direction: column;
+    }
+    .offer-col-1__profile {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .offer-col-2__profile {
+        width: 100%;
+    }
+}
+
 #order-button {
+    margin-left: 50px;
     width: 100%;
     height: 50px;
     border: none;
@@ -1185,6 +1232,8 @@ label[for="id_mart"] {
     background-color: #9bad93;
 }
 
-.order-list {
-    font-weight: normal;
+@media (max-width: 1200px) {
+    #order-button {
+        margin-left: 0px;
+    }
 }
