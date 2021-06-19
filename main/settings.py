@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'feedback',
+    'send_email',
 ]
 
 MIDDLEWARE = [
@@ -105,3 +106,10 @@ LOGOUT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 CART_SESSION_ID = 'cart'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'oskastore4you@gmail.com' 
+EMAIL_HOST_PASSWORD = 'ggPassword123'
+EMAIL_PORT = 587
+# EMAIL_PORT = 465

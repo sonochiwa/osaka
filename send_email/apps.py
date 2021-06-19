@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class CartConfig(AppConfig):
+class SendEmailConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'cart'
-    verbose_name = 'Корзина'
+    name = 'send_email'
+    verbose_name = 'Спам'

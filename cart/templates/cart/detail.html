@@ -49,7 +49,8 @@
                             <div class="offer-col-1">
                                 <p>Самовывоз:</p>
                                 <p></br>Доставка:</p>
-                                <p></br></br></br>Бронирование:</p>
+                                {% comment %} <p></br></br></br>Бронирование:</p> {% endcomment %}
+                                <p></br></br></br>Промо-код:</p>
                             </div>
                             <div class="offer-col-2">
                                 <form>
@@ -60,14 +61,10 @@
                                         <option>Фестиваль</option>
                                     </select>
                                     <input type="text" placeholder="Адрес доставки">
-                                    <input type="text" placeholder="Почтовый индекс">
-                                    <select name="Время бронировки заказа">
-                                    <option  hidden>Адрес магазина...</option> 
-                                        <option>ТЦ Мега</option>
-                                        <option>Флагман</option>
-                                        <option>Фестиваль</option>
-                                    </select>
-                                    <input type="text" placeholder="Время бронирования">
+                                    <input type="text" placeholder="Почтовый индекс">                                    
+                                    {% comment %} <input type="checkbox" checked="checked">
+                                    <input type="text" placeholder="Время бронирования"> {% endcomment %}
+                                    <input type="text" placeholder="Введите промо-код">
                                 </form>
                             </div>
                         </div>

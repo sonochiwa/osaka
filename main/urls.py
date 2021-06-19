@@ -12,6 +12,7 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('contact/', include('contact.urls')),
     path('feedback/', include('feedback.urls')),
+    path('send_email/', include('send_email.urls')),
 ]
 
 if settings.DEBUG:

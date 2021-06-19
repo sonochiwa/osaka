@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_POST
 from catalog.models import Category, Product
 from .cart import Cart
-from .forms import CartAddProductForm
+from .forms import CartAddProductForm, OrderForm
 
 
 @require_POST
@@ -27,7 +27,6 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 def cart_detail(request, **kwargs):
-    status = False
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
@@ -44,6 +43,12 @@ def cart_detail(request, **kwargs):
             product.save()
         cart.clear()
         return redirect('cart:cart_detail')
-        # return render(request, 'cart/detail.html', {'cart': cart, 'status': True})
+    return render(request, 'cart/detail.html', {'cart': cart})
 
-    return render(request, 'cart/detail.html', {'cart': cart, 'status': False})
+def order(request):
+    if request.method == 'POST': 
+        order_form = OrderForm(request.POST)
+        if order_form.is_valid():
+            pass
+    else:
+        order_form = OrderForm()

@@ -1,0 +1,14 @@
+{% extends 'osaka/wrapper.html' %}
+
+{% block title %}
+    Рассылка
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+    
+{% endblock %}

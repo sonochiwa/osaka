@@ -1,4 +1,5 @@
 from django import forms
+from .models import Order
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
@@ -11,3 +12,15 @@ class CartAddProductForm(forms.Form):
         coerce=int)
     update = forms.BooleanField(required=False, initial=False,
         widget=forms.HiddenInput)
+
+class OrderForm(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ['mart', 'address', 'index', 'promo']
+        widgets = {
+            'mart': forms.TextInput(attrs={'class': 'editContent'}),
+            'address': forms.TextInput(attrs={'class': 'editContent'}),
+            'index': forms.TextInput(attrs={'class': 'editContent'}),
+            'promo': forms.TextInput(attrs={'class': 'editContent'})
+        }

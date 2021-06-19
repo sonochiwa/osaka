@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'Poppins', sans-serif;
     src: url("../fonts/Poppins/Poppins-Medium.ttf");
-}
+} */
 
 html {
     height: 100%;
@@ -20,7 +21,8 @@ a:hover {
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Comfortaa', cursive;
     color: #333;
     font-size: 14px;
     height: 100%;
@@ -106,7 +108,8 @@ section {
 }
 
 .main-menu>li>a {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Comfortaa', cursive;
 }
 
 .main-menu a {
@@ -597,18 +600,15 @@ tbody {
     display: flex;
 }
 
-.offer {
-    margin-left: 50px;
-    border: 1px solid rgb(223, 223, 223);
-    width: 100%;
-}
-
 .offer h1 {
     margin-bottom: 50px;
     text-align: left;
 }
 
 .offer {
+    margin-left: 50px;
+    border: 1px solid rgb(223, 223, 223);
+    width: 100%;
     display: flex;
     padding: 10px 40px 10px;
     flex-direction: column;
@@ -686,6 +686,7 @@ tbody {
         width: 100%;
     }
     .offer {
+        padding: 10px 20px 10px;
         margin-top: 30px;
         width: 100%;
         margin-left: 0px;
@@ -1155,4 +1156,12 @@ button:disabled {
 
 button:hover:disabled {
     background-color: rgb(156, 156, 156);
+}
+
+input:checked {
+    width: 40px;
+}
+
+input[type="checkbox"] {
+    width: 40px;
 }
