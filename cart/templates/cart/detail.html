@@ -51,10 +51,11 @@
                                 <p></br>Доставка:</p>
                                 {% comment %} <p></br></br></br>Бронирование:</p> {% endcomment %}
                                 <p></br></br></br>Промо-код:</p>
+                                <p></br><p>Итого:</p>
                             </div>
                             <div class="offer-col-2">
-                                <form>
-                                    <select name="Выберете магазин">
+                                <form action="{% url 'cart:cart_detail' %}" method="post">
+                                    {% comment %} <select name="Выберете магазин">
                                     <option  hidden>Адрес магазина...</option> 
                                         <option>ТЦ Мега</option>
                                         <option>Флагман</option>
@@ -62,31 +63,33 @@
                                     </select>
                                     <input type="text" placeholder="Адрес доставки">
                                     <input type="text" placeholder="Почтовый индекс">                                    
-                                    {% comment %} <input type="checkbox" checked="checked">
-                                    <input type="text" placeholder="Время бронирования"> {% endcomment %}
-                                    <input type="text" placeholder="Введите промо-код">
+                                    <input type="checkbox" checked="checked">
+                                    <input type="text" placeholder="Время бронирования">
+                                    <input type="text" placeholder="Введите промо-код"> {% endcomment %}
+                                        
+                                    {{ order_form }}
+                                    
+
+                                    <div class="offer-col-2">
+                                        <div class="total">
+                                            <p>{{ cart.get_total_price }} ₽</p>
+                                        </div>
+                                    </div>
+                                    {% csrf_token %}
+                                        <button class="button">Оформить заказ</button>
                                 </form>
                             </div>
                         </div>
-                        <div class="col-fields">
-                            <div class="offer-col-1">
-                                <p>Итого:</p>
-                            </div>
-                            <div class="offer-col-2">
-                                <div class="total">
-                                    <p>{{ cart.get_total_price }} ₽</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="text-col-2">
                         <div id="overlay">
                             <div id="text">Заказ оформлен!</div>
                         </div>
-                        <form id="offer-form" action="{% url 'cart:cart_detail' %}" method="post">
+                        {% comment %} <form id="offer-form" action="{% url 'cart:cart_detail' %}" method="post">
                         {% csrf_token %}
                             <button class="button">Оформить заказ</button>
-                        </form>
+                        </form> {% endcomment %}
                     </div>
                 
                 </div>

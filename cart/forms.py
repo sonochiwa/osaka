@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from .models import Order, Mart
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
@@ -15,9 +15,19 @@ class CartAddProductForm(forms.Form):
 
 class OrderForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super(OrderForm, self).__init__(*args, **kwargs)
+        self.fields['mart'] = forms.ModelChoiceField(queryset=Mart.objects.all())
+
     class Meta:
         model = Order
         fields = ['mart', 'address', 'index', 'promo']
+        labels = {
+            'mart': '',
+            'address': '',
+            'index': '',
+            'promo': '',
+        }
         widgets = {
             'mart': forms.TextInput(attrs={'class': 'editContent'}),
             'address': forms.TextInput(attrs={'class': 'editContent'}),

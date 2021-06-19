@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import Order, Mart, Promo
+from .models import Order, OrderItem, Mart, Promo
 
+class OrderItemAdmin(admin.TabularInline):
+    model = OrderItem
+    extra = 0
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('mart', 'address', 'index',)
+    inlines = [OrderItemAdmin]
 
 @admin.register(Mart)
 class MartAdmin(admin.ModelAdmin):
