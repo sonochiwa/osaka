@@ -7,21 +7,20 @@
 
 {% block content %}
 
+
+
 <div class="true_slider">
     <div class="slider middle">
-
         <div class="slides">
-        
             <input type="radio" name="r" id="r1" checked>
             <input type="radio" name="r" id="r2">
             <input type="radio" name="r" id="r3">
             <input type="radio" name="r" id="r4">
 
             <div class="slide s1"><img src="{% static "osaka/images/slider/slide-01.jpg" %}" alt=""></div>
-            <div class="slide"><a href="http://osaka-store.xyz/catalog/kurtki/"><img src="{% static "osaka/images/slider/slide-02.jpg" %}" alt=""></a></div>
-            <div class="slide"><a href="http://osaka-store.xyz/catalog/bryuki/"><img src="{% static "osaka/images/slider/slide-03.jpg" %}" alt=""></a></div>
-            <div class="slide"><a href="http://osaka-store.xyz/catalog/topy/"><img src="{% static "osaka/images/slider/slide-04.jpg" %}" alt=""></a></div>
-        
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-02.jpg" %}" alt=""></div>
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-03.jpg" %}" alt=""></div>
+            <div class="slide"><img src="{% static "osaka/images/slider/slide-04.jpg" %}" alt=""></div>
         </div>
 
         <div class="navigation">
@@ -33,52 +32,56 @@
     </div>
 </div>
 
+
 <div class="container">
     <h1>Популярные категории</h1>
     <div id="main" class="product-list">
 
         <div class="card">
             <div class="item">
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{% static "osaka/images/empty.png" %}" alt="Картинка">
-            </a>
+                <a href="http://osaka-store.xyz/catalog/Obuv/">
+                    <img src="{% static "osaka/images/categories/category-1.jpg" %}" alt="Картинка">
+                </a>
             </div>
-            <p><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></p>
         </div>
 
         <div class="card">
             <div class="item">
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{% static "osaka/images/empty.png" %}" alt="Картинка">
-            </a>
+                <a href="http://osaka-store.xyz/catalog/topy/">
+                    <img src="{% static "osaka/images/categories/category-2.jpg" %}" alt="Картинка">
+                </a>
             </div>
-            <p><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></p>
         </div>
 
         <div class="card">
             <div class="item">
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{% static "osaka/images/empty.png" %}" alt="Картинка">
-            </a>
+                <a href="http://osaka-store.xyz/catalog/hudi/">
+                    <img src="{% static "osaka/images/categories/category-3.jpg" %}" alt="Картинка">
+                </a>
             </div>
-            <p><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></p>
         </div>
 
         <div class="card">
             <div class="item">
-            <a href="{{ product.get_absolute_url }}">
-                <img src="{% static "osaka/images/empty.png" %}" alt="Картинка">
-            </a>
+                <a href="http://osaka-store.xyz/catalog/rubashki/">
+                    <img src="{% static "osaka/images/categories/category-4.jpg" %}" alt="Картинка">
+                </a>
             </div>
-            <p><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></p>
         </div>
     </div>
 </div>
 
-<div class="banner">
-    <img src="{% static 'osaka/images/bg-02.jpg' %}">
+<div class="container">
+    <div class="col-extra-wrapper">
+        <div class="col-extra"><img src="{% static "osaka/images/icons/chat.png" %}" alt="Картинка">Бесплатная доставка</div>
+        <div class="col-extra"><img src="{% static "osaka/images/icons/coin.png" %}" alt="Картинка">100% возврат денег</div>
+        <div class="col-extra col-extra__2"><img src="{% static "osaka/images/icons/delivery.png" %}" alt="Картинка">Горячая линия 24/7</div>
+    </div>
 </div>
 
+<div class="banner">
+    <img src="{% static 'osaka/images/bg-04.png' %}">
+</div>
 <div class="container">
     <h1>Распродажа</h1>
     <div id="main" class="product-list">
@@ -102,5 +105,4 @@
         {% endfor %}
     </div>
 </div>
-
 {% endblock %}

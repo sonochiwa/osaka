@@ -1243,3 +1243,39 @@ label[for="id_mart"] {
         display: none;
     }
 }
+
+.col-extra-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.col-extra {
+    flex-direction: column;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.col-extra img {
+    height: 70px;
+}
+
+.col-extra__2 img {
+    height: 70px;
+    width: 110px;
+}
+
+@media (max-width: 900px) {
+    .col-extra-wrapper {
+        flex-direction: column;
+    }
+    .col-extra {
+        margin-bottom: 50px;
+    }
+}
