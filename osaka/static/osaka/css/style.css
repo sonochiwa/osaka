@@ -1248,8 +1248,7 @@ label[for="id_mart"] {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 150px;
-    margin-bottom: 300px;
+    margin-bottom: 160px;
 }
 
 .col-extra {
