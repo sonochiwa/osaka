@@ -1264,6 +1264,7 @@ label[for="id_mart"] {
 
 .col-extra img {
     height: 70px;
+    margin-bottom: 20px;
 }
 
 .col-extra__2 img {
@@ -1282,11 +1283,6 @@ label[for="id_mart"] {
         margin-top: 30px;
         margin-bottom: 50px;
     }
-}
-
-.index-banner-2 {
-    overflow-x: hidden;
-    width: 1920px;
 }
 
 @media (max-width: 900px) {
