@@ -37,7 +37,7 @@
                         <li class="user-auth"><a href="{% url "profile" %}">{{ request.user.username }}</a></li>
                         <li><a href="{% url "logout" %}">Выйти</a></li>
                         {% else %}
-                        <li><a href="{% url 'cart:cart_detail' %}">Корзина</a></li>
+                        <li><a class="main-cart" href="{% url 'cart:cart_detail' %}">Корзина</a></li>
                         <li {% if section == "sign-in" %} class="selected" {% endif %}><a href="{% url 'login' %}">Вход</a></li>
                         <li {% if section == "register" %} class="selected" {% endif %}><a href="{% url 'register' %}">Регистрация</a></li>
                         {% endif %}

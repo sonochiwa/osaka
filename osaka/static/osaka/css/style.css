@@ -181,7 +181,7 @@ section {
     line-height: 40px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .true_slider {
         display: none;
     }
@@ -1235,5 +1235,11 @@ label[for="id_mart"] {
 @media (max-width: 1200px) {
     #order-button {
         margin-left: 0px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-cart {
+        display: none;
     }
 }

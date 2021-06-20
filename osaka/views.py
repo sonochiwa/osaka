@@ -3,7 +3,7 @@ from catalog.models import Product
 
 
 def index(request):
-    discount_products = Product.objects.filter(discount__gt=0)[:4]
+    discount_products = Product.objects.filter(discount__gt=0)[:8]
     return render(request, 'osaka/index.html', context={'section': 'index', 'products': discount_products})
     
 
