@@ -1278,4 +1278,19 @@ label[for="id_mart"] {
     .col-extra {
         margin-bottom: 50px;
     }
+    .col-extra-wrapper {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+}
+
+.index-banner-2 {
+    overflow-x: hidden;
+    width: 1920px;
+}
+
+@media (max-width: 900px) {
+    .index-banner-2 {
+        display: none;
+    }
 }
