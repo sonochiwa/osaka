@@ -88,9 +88,11 @@
         
         form.addEventListener('submit', function(e){
             e.preventDefault();
-            if (user_auth && product) {
-                if (address.value || mart.value) {
-                    overlay.style.display = "block";
+            if (user_auth) {
+                if (product) {
+                     if (address.value || mart.value) {
+                        overlay.style.display = "block";
+                    }
                 }
             }
             else {
