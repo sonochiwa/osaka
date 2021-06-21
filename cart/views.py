@@ -38,6 +38,18 @@ def cart_detail(request, **kwargs):
         if not request.user.is_authenticated:
             return redirect('login')
         order_form = OrderForm(request.POST)
+
+        for item in cart:
+            product = item['product']
+            count = product.count - item['quantity']
+            if count <= 0:
+                product.count = 0
+            else:
+                product.count = count
+            product.save()
+        cart.clear()
+        return redirect('cart:cart_detail')
+
         if order_form.is_valid():
             cd = order_form.cleaned_data    
             if len(cart):
@@ -47,8 +59,6 @@ def cart_detail(request, **kwargs):
                     new_order.save()
                     for item in cart:
                         size = Size.objects.get(size=item['size'])
-                        
-                        # promo = Promo.objects.get(promo='summersale')
                         try:
                             promo = Promo.objects.get(promo=cd['promo'])  
                         except ObjectDoesNotExist:
@@ -64,16 +74,16 @@ def cart_detail(request, **kwargs):
                                                 size = size)
                     cart.clear()
                     return redirect('cart:cart_detail')
-        for item in cart:
-            product = item['product']
-            count = product.count - item['quantity']
-            if count <= 0:
-                product.count = 0
-            else:
-                product.count = count
-            product.save()
-        cart.clear()
-        return redirect('cart:cart_detail')
+        # for item in cart:
+        #     product = item['product']
+        #     count = product.count - item['quantity']
+        #     if count <= 0:
+        #         product.count = 0
+        #     else:
+        #         product.count = count
+        #     product.save()
+        # cart.clear()
+        # return redirect('cart:cart_detail')
     else:
         order_form = OrderForm()
         return render(request, 'cart/detail.html', {'cart': cart, 'order_form': order_form})
