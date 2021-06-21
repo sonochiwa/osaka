@@ -39,16 +39,10 @@ def cart_detail(request, **kwargs):
             return redirect('login')
         order_form = OrderForm(request.POST)
 
-        for item in cart:
-            product = item['product']
-            count = product.count - item['quantity']
-            if count <= 0:
-                product.count = 0
-            else:
-                product.count = count
-            product.save()
-        cart.clear()
-        return redirect('cart:cart_detail')
+        # for item in cart:
+            
+        # cart.clear()
+        # return redirect('cart:cart_detail')
 
         if order_form.is_valid():
             cd = order_form.cleaned_data    
@@ -72,18 +66,16 @@ def cart_detail(request, **kwargs):
                                                 price =  price,
                                                 quantity = item['quantity'],
                                                 size = size)
-                    cart.clear()
+                        product = item['product']
+                        count = product.count - item['quantity']
+                        if count <= 0:
+                            product.count = 0
+                        else:
+                            product.count = count
+                        product.save()
+                        cart.clear()
                     return redirect('cart:cart_detail')
-        # for item in cart:
-        #     product = item['product']
-        #     count = product.count - item['quantity']
-        #     if count <= 0:
-        #         product.count = 0
-        #     else:
-        #         product.count = count
-        #     product.save()
-        # cart.clear()
-        # return redirect('cart:cart_detail')
+
     else:
         order_form = OrderForm()
         return render(request, 'cart/detail.html', {'cart': cart, 'order_form': order_form})
